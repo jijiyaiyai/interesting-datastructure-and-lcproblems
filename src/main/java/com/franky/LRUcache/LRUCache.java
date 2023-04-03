@@ -1,21 +1,17 @@
-package com.franky;
+package com.franky.LRUcache;
 
-
+/**
+ * LRU页面置换算法：(least recently used)
+ * 当缓存的页面数达到缓存容量上限的时候，要把最久未被使用过的页面置换掉
+ * 实现策略：
+ * 使用一个哈希表和一个双向链表
+ * 新增页面的时候，要在hash表中记录，还要在双向链表中把它放在最前面（除了哑节点）
+ * 查询页面的时候，在哈希表中查询，如果查得到，还要将它调到链表最前面
+ * 删除页面的时候，直接删除最尾的一个节点，并在hash表中删除
+ *
+ * 可以自己实现双向链表和hashmap，也可以继承hashmap实现自己的LinkedHashMap
+ */
 public class LRUCache {
-    private final MyLinkedHashMap<Integer, Integer> map;
-
-    public LRUCache(int capacity) {
-        map = new MyLinkedHashMap<>(capacity);
-    }
-
-    public int get(int key) {
-        return map.getOrDefault(key, -1);
-    }
-
-    public void put(int key, int value) {
-        map.put(key, value);
-    }
-
     private class MyLinkedHashMap<K, V> {
 
         private final Entry<K, V>[] table;
@@ -222,6 +218,21 @@ public class LRUCache {
         }
 
     }
+
+    private final MyLinkedHashMap<Integer, Integer> map;
+
+    public LRUCache(int capacity) {
+        map = new MyLinkedHashMap<>(capacity);
+    }
+
+    public int get(int key) {
+        return map.getOrDefault(key, -1);
+    }
+
+    public void put(int key, int value) {
+        map.put(key, value);
+    }
+
     public static void main(String[] args) {
         LRUCache cache = new LRUCache(2);
         cache.put(1, 1);
