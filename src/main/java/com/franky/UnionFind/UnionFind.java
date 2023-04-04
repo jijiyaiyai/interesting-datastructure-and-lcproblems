@@ -2,13 +2,14 @@ package com.franky.UnionFind;
 
 /**
  * 并查集
- * 把每个节点都编号，保存在root中
+ * 把每个节点都编号
  */
 public class UnionFind {
     int[] roots;
     public UnionFind(int n) {
         roots = new int[n];
         for (int i = 0; i < n; i++) {
+            //一开始每个节点的根都是它自己
             roots[i] = i;
         }
     }
@@ -17,7 +18,7 @@ public class UnionFind {
         if (roots[i] == i) {
             return i;
         }
-        //递归地查找，查找过程中顺便将子节点全部挂在同一个根节点上
+        //递归地查找i的父亲节点，查找过程中顺便将子节点全部挂在同一个根节点上
         return roots[i] = find(roots[i]);
     }
 
