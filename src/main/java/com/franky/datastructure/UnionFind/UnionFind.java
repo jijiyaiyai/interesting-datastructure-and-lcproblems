@@ -1,4 +1,4 @@
-package com.franky.UnionFind;
+package com.franky.datastructure.UnionFind;
 
 /**
  * 并查集

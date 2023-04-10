@@ -1,4 +1,4 @@
-package com.franky.Trie;
+package com.franky.datastructure.Trie;
 
 /**
  * 字典树的实现

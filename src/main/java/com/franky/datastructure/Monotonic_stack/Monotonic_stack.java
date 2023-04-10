@@ -1,4 +1,4 @@
-package com.franky.Monotonic_stack;
+package com.franky.datastructure.Monotonic_stack;
 
 import java.util.ArrayDeque;
 import java.util.Arrays;

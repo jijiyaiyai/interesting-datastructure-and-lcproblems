@@ -1,4 +1,4 @@
-package com.franky.LRUcache;
+package com.franky.datastructure.LRUcache;
 
 /**
  * LRU页面置换算法：(least recently used)
